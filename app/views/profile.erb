@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Welcome to the profile page of <%= @user.first_name %> <%= @user.last_name %></h1>
+  <p>Here are their links:</p>
+  <ul>
+    <% @user.urls.each  do |url| %>
+      <li><a href='/<%= url.short_url %>'><%= url.short_url %></a>
+      <% if session[:id] == @user.id %>
+        <%= url.click_count %>  Clicks
+      <% end %></li>
+    <% end %>
+  </ul>
+</div>
